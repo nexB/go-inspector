@@ -67,7 +67,9 @@ class GoSymbolScannerPlugin(ScanPlugin):
 
 def is_macho(location):
     """
-    Return True if the file at ``location`` is macho, otherwise False.
+    Return True if the file at ``location`` is a Mach-O binary, otherwise False.
+    Mach-O is the binary format used mostly by Apple macOs and Darwin.
+    See https://en.wikipedia.org/wiki/Mach-O for details.
     """
     t = get_type(location)
     return t.filetype_file.lower().startswith("mach-o") or t.mimetype_file.lower().startswith(
